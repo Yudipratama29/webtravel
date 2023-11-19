@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('book', function (Blueprint $table) {
             $table->id();
+            $table->string('idbook') -> unique();
+            $table->string('bookname');
+            $table->foreignId('destination_iddst');
+            $table->foreignId('transportation_idtrans');
+            $table->string('phone');
             $table->timestamps();
         });
     }
