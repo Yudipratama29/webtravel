@@ -5,23 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class MahasiswaController extends Controller
+class BookController extends Controller
 {
     public function index()
     {
         $book = DB::table('book')
-        ->select("book.idbook","book.bookname", "destination.iddst AS destination_name", "transportation.idtrans AS transportation_name", "phone")
-        ->join('destination', 'destination.iddst', '=', 'book.destination_iddst', 'transportation', 'transportation.idtrans', '=', 'book.transportation_idtrans')
+        ->select("book.id", "book.idbook","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
+        ->join('destination', 'destination.id', '=', 'book.destination_id')
+        ->join('transportation', 'transportation.id', '=', 'book.transportation_id')
         ->get();
 
-        return view('book.index', ['databook' => $mhs]);
+        return view('book.index', ['databook' => $book]);
     }
 
     public function create()
     {
-        $book = DB::table('book')->get();
+        $destination = DB::table('destination')->get();
+        $transportation = DB::table('transportation')->get();
 
-        return view('book.create', ['databook' => $book]);
+        return view('book.create', ['datadestination' => $destination, 'datatransportation' => $transportation]);
     }
 
     public function store(Request $request)
@@ -29,8 +31,8 @@ class MahasiswaController extends Controller
         DB::table('book')->insert([
             'idbook' => $request->idbook,
             'bookname' => $request->bookname,
-            'destination_iddst' => $request->destination,
-            'transportation_idtrans' => $request->transportation,
+            'destination_id' => $request->destination,
+            'transportation_id' => $request->transportation,
             'phone' => $request->phone,
         ]);
 
@@ -40,12 +42,12 @@ class MahasiswaController extends Controller
     public function update(Request $request, $id)
     {
         DB::table('book')
-        ->where('idbook', $id)
+        ->where('id', $id)
         ->update([
             'idbook' => $request->idbook,
             'bookname' => $request->bookname,
-            'destination_iddst' => $request->destination,
-            'transportation_idtrans' => $request->transportation,
+            'destination_id' => $request->destination,
+            'transportation_id' => $request->transportation,
             'phone' => $request->phone,
         ]);
 
@@ -66,24 +68,30 @@ class MahasiswaController extends Controller
     public function edit($id)
     {
         $book = DB::table('book')
-        ->select("book.idbook","book.bookname", "destination.iddst AS destination_name", "transportation.idtrans AS transportation_name", "phone")
-        ->join('destination', 'destination.iddst', '=', 'book.destination_iddst', 'transportation', 'transportation.idtrans', '=', 'book.transportation_idtrans')
+        ->select("book.id", "idbook","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
+        ->join('destination', 'destination.id', '=', 'book.destination_id')
+        ->join('transportation', 'transportation.id', '=', 'book.transportation_id')
         ->where('book.idbook', $id)
         ->first();
 
-        $book = DB::table('book')->get();
+        $destination = DB::table('destination')->get();
+        $transportation = DB::table('transportation')->get();
 
-        return view('mahasiswa.edit', ['data' => $mhs, 'id' => $id, 'jurusan' => $jurusan]);
+        return view('book.edit', ['databook' => $book, 'id' => $id, 'datadestination' => $destination, 'datatransportation' => $transportation]);
     }
 
     public function show($id)
     {
-        $mhs = DB::table('book')
-        ->select("book.idbook","book.bookname", "destination.iddst AS destination_name", "transportation.idtrans AS transportation_name", "phone")
-        ->join('destination', 'destination.iddst', '=', 'book.destination_iddst', 'transportation', 'transportation.idtrans', '=', 'book.transportation_idtrans')
-        ->where('book.idbook', $id)
+        $book = DB::table('book')
+        ->select("book.id", "book.idbook","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
+        ->join('destination', 'destination.id', '=', 'book.destination_id')
+        ->join('transportation', 'transportation.id', '=', 'book.transportation_id')
+        ->where('book.id', $id)
         ->first();
 
-        return view('book.show', ['databook' => $book]);
+        $destination = DB::table('destination')->get();
+        $transportation = DB::table('transportation')->get();
+
+        return view('book.show', ['databook' => $book, 'id' => $id, 'destination' => $destination, 'transportation' => $transportation]);
     }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('book', function (Blueprint $table) {
             $table->id();
-            $table->string('idbook') -> unique();
+            $table->string('idbook')->unique();
             $table->string('bookname');
-            $table->foreignId('destination_iddst');
-            $table->foreignId('transportation_idtrans');
+            $table->foreignId('destination_id');
+            $table->foreignId('transportation_id');
             $table->string('phone');
             $table->timestamps();
         });

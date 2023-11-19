@@ -22,6 +22,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Book ID</th>
                         <th scope="col">Book Name</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Transportation</th>
@@ -30,18 +31,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $d)
+                    @foreach ($databook as $db)
                         <tr>
-                            <td>{{ $d->idbook }}</td>
-                            <td>{{ $d->bookname }}</td>
-                            <td>{{ $d->destination_name }}</td>
-                            <td>{{ $d->transportation_name }}</td>
-                            <td>{{ $d->phone }}</td>
+                            <td>{{ $db->idbook }}</td>
+                            <td>{{ $db->bookname }}</td>
+                            <td>{{ $db->destination_name }}</td>
+                            <td>{{ $db->transportation_transportation }}</td>
+                            <td>{{ $db->phone }}</td>
                             <td class="float-end">
-                                <a class="btn btn-sm btn-success" href="{{ url('/book/' . $d->id ) }}">Show</a>
-                                <a class="btn btn-sm btn-warning"
-                                    href="{{ url('/book/' . $d->id . '/edit') }}">Edit</a>
-                                <form style="display: inline;" action="{{ url('/book/' . $d->id ) }}" method="POST">
+                                <a class="btn btn-sm btn-success" href="{{ url('/book/' . $db->id ) }}">Show</a>
+                                <a class="btn btn-sm btn-warning" href="{{ url('/book/' . $db->id . '/edit') }}">Edit</a>
+                                <form style="display: inline;" action="{{ url('/book/' . $db->id ) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>

@@ -10,7 +10,7 @@ class TRPController extends Controller
     public function index()
     {
         $transportation = DB::table('transportation')
-        ->select("idtrans", "transportation", "driver")
+        ->select("transportation.idtrans", "transportation.transportation", "transportation.driver")
         ->get();
 
         return view('transportation.index', ['datatransportation' => $transportation]);
@@ -19,9 +19,9 @@ class TRPController extends Controller
     public function show($id)
     {
         $transportation = DB::table('transportation')
-        ->select("idtrans", "transportation", "driver")
-        ->get();
+        ->select("transportation.idtrans", "transportation.transportation", "transportation.driver")
+        ->first();
 
-        return view('transportation.index', ['datatransportation' => $transportation]);
+        return view('transportation.show', ['datatransportation' => $transportation]);
     }
 }

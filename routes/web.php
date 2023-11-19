@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DLController;
 use App\Http\Controllers\TRPController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,16 @@ Route::controller(DLController::class)->prefix("destination")->group(function(){
 });
 
 Route::controller(TRPController::class)->prefix("transportation")->group(function(){
+    Route::get('/', 'index');
+    Route::post('/', 'store');
+    Route::get('/create', 'create');
+    Route::get('/{id}', 'show');
+    Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
+    Route::get('/{id}/edit', 'edit');
+});
+
+Route::controller(BookController::class)->prefix("book")->group(function(){
     Route::get('/', 'index');
     Route::post('/', 'store');
     Route::get('/create', 'create');

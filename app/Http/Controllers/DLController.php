@@ -10,7 +10,7 @@ class DLController extends Controller
     public function index()
     {
         $destination = DB::table('destination')
-        ->select("iddst", "name", "location")
+        ->select("destination.iddst", "destination.name", "destination.location")
         ->get();
 
         return view('destination.index', ['datadestination' => $destination]);
@@ -19,9 +19,9 @@ class DLController extends Controller
     public function show($id)
     {
         $destination = DB::table('destination')
-        ->select("iddst", "name", "location")
-        ->get();
+        ->select("destination.iddst", "destination.name", "destination.location")
+        ->first();
 
-        return view('home.index', ['datadestination' => $destination]);
+        return view('destination.show', ['datadestination' => $destination]);
     }
 }

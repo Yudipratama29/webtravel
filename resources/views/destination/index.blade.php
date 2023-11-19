@@ -32,7 +32,7 @@
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->location }}</td>
                             <td class="float-end">
-                                <a class="btn btn-sm btn-success" href="{{ url('/destination/show' . $d->id ) }}">Show</a>
+                                <a class="btn btn-sm btn-success" href="{{ url('/destination/show' . $d->iddst ) }}">Show</a>
                             </td>
                         </tr>
                     @endforeach

@@ -14,8 +14,10 @@
                 <h4 class="card-title">Details Transportation</h4>
             </div>
         </div>
-        <p>ID                  : {{$datatransportation->idtrans}}</p>
-        <p>Transportation      : {{$datatransportation->name}}</p>
-        <p>Driver              : {{$datatransportation->driver}}</p>
+        <div>
+            <p class="card-text">ID                  : {{$datatransportation->idtrans}}</p>
+            <p class="card-text">Transportation      : {{$datatransportation->transportation}}</p>
+            <p class="card-text">Driver              : {{$datatransportation->driver}}</p>
+        </div>
     </div>
 @endsection
