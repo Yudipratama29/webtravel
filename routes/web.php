@@ -28,7 +28,7 @@ Route::controller(DLController::class)->prefix("destination")->group(function(){
     Route::get('/{id}/edit', 'edit');
 });
 
-Route::controller(TRPController::class)->prefix("Transportation")->group(function(){
+Route::controller(TRPController::class)->prefix("transportation")->group(function(){
     Route::get('/', 'index');
     Route::post('/', 'store');
     Route::get('/create', 'create');
