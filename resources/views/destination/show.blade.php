@@ -14,8 +14,8 @@
                 <h4 class="card-title">Details Destination</h4>
             </div>
         </div>
-        <p>ID                  : {{$destination->id}}</p>
-        <p>Destination Name    : {{$destination->name}}</p>
-        <p>Location            : {{$destination->location}}</p>
+        <p>ID                  : {{$datadestination->iddst}}</p>
+        <p>Destination Name    : {{$datadestination->name}}</p>
+        <p>Location            : {{$datadestination->location}}</p>
     </div>
 @endsection
