@@ -26,9 +26,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($destination as $d)
+                    @foreach ($datadestination as $d)
                         <tr>
-                            <td>{{ $d->id }}</td>
+                            <td>{{ $d->iddst }}</td>
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->location }}</td>
                             <td class="float-end">

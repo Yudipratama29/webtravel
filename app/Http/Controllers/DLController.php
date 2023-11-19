@@ -10,16 +10,16 @@ class DLController extends Controller
     public function index()
     {
         $destination = DB::table('destination')
-        ->select("id", "name", "location")
+        ->select("iddst", "name", "location")
         ->get();
 
-        return view('home.index', ['datadestination' => $destination]);
+        return view('destination.index', ['datadestination' => $destination]);
     }
 
     public function show($id)
     {
         $destination = DB::table('destination')
-        ->select("id", "name", "location")
+        ->select("iddst", "name", "location")
         ->get();
 
         return view('home.index', ['datadestination' => $destination]);

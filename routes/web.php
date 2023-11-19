@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::Controller(DLController::class)->prefix("destination")->group(function(){
+Route::controller(DLController::class)->prefix("destination")->group(function(){
     Route::get('/', 'index');
+    Route::post('/', 'store');
+    Route::get('/create', 'create');
     Route::get('/{id}', 'show');
+    Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
+    Route::get('/{id}/edit', 'edit');
 });
-<
