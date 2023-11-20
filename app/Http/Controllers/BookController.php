@@ -10,7 +10,7 @@ class BookController extends Controller
     public function index()
     {
         $book = DB::table('book')
-        ->select("book.id", "book.idbook","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
+        ->select("book.id","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
         ->join('destination', 'destination.id', '=', 'book.destination_id')
         ->join('transportation', 'transportation.id', '=', 'book.transportation_id')
         ->get();
@@ -29,7 +29,7 @@ class BookController extends Controller
     public function store(Request $request)
     {
         DB::table('book')->insert([
-            'idbook' => $request->idbook,
+            'id' => $request->id,
             'bookname' => $request->bookname,
             'destination_id' => $request->destination,
             'transportation_id' => $request->transportation,
@@ -44,7 +44,7 @@ class BookController extends Controller
         DB::table('book')
         ->where('id', $id)
         ->update([
-            'idbook' => $request->idbook,
+            'id' => $request->id,
             'bookname' => $request->bookname,
             'destination_id' => $request->destination,
             'transportation_id' => $request->transportation,
@@ -68,10 +68,10 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = DB::table('book')
-        ->select("book.id", "idbook","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
+        ->select("book.id","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
         ->join('destination', 'destination.id', '=', 'book.destination_id')
         ->join('transportation', 'transportation.id', '=', 'book.transportation_id')
-        ->where('book.idbook', $id)
+        ->where('book.id', $id)
         ->first();
 
         $destination = DB::table('destination')->get();
@@ -83,7 +83,7 @@ class BookController extends Controller
     public function show($id)
     {
         $book = DB::table('book')
-        ->select("book.id", "book.idbook","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
+        ->select("book.id","book.bookname",'destination_id', "destination.name AS destination_name",'transportation_id', "transportation.transportation AS transportation_transportation", "book.phone")
         ->join('destination', 'destination.id', '=', 'book.destination_id')
         ->join('transportation', 'transportation.id', '=', 'book.transportation_id')
         ->where('book.id', $id)

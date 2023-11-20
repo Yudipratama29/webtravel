@@ -15,11 +15,11 @@
             </div>
         </div>
         <div>
-            <p class="card-text">ID                  : {{$databook->idbook}}</p>
-            <p class="card-text">Book Name      : {{$databook->bookname}}</p>
-            <p class="card-text">Destination              : {{$databook->destination_name}}</p>
-            <p class="card-text">transportation              : {{$databook->transportation_transportation}}</p>
-            <p class="card-text">Phone              : {{$databook->phone}}</p>
+            <p class="card-text">ID Booking             : {{$databook->id}}</p>
+            <p class="card-text">Book Name              : {{$databook->bookname}}</p>
+            <p class="card-text">Destination            : {{$databook->destination_name}}</p>
+            <p class="card-text">transportation         : {{$databook->transportation_transportation}}</p>
+            <p class="card-text">Phone                  : {{$databook->phone}}</p>
         </div>
     </div>
 @endsection

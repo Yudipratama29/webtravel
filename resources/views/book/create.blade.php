@@ -18,10 +18,6 @@
             <div class="card-body">
                 @csrf
                 <div>
-                    <label class="form-label">ID Booking</label>
-                    <input class="form-control" type="text" name="idbook">
-                </div>
-                <div>
                     <label class="form-label">Book Name</label>
                     <input class="form-control" type="text" name="bookname">
                 </div>

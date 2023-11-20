@@ -19,10 +19,6 @@
             @method('PUT')
             <div class="card-body">
                 <div>
-                    <label class="form-label">ID Book</label>
-                    <input class="form-control" type="text" name="idbook">
-                </div>
-                <div>
                     <label class="form-label">Book Name</label>
                     <input class="form-control" type="text" name="bookname">
                 </div>

@@ -22,7 +22,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Book ID</th>
                         <th scope="col">Book Name</th>
                         <th scope="col">Destination</th>
                         <th scope="col">Transportation</th>
@@ -33,7 +32,6 @@
                 <tbody>
                     @foreach ($databook as $db)
                         <tr>
-                            <td>{{ $db->idbook }}</td>
                             <td>{{ $db->bookname }}</td>
                             <td>{{ $db->destination_name }}</td>
                             <td>{{ $db->transportation_transportation }}</td>

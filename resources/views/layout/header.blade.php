@@ -1,7 +1,7 @@
-<header class="navbar navbar-expand-lg bg-body-tertiary py-3 mb-4 border-bottom">
+<header class="d-flex flex-wrap justify-content-right py-1 mb-5 border-bottom">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brans" href="/">
             <img src="https://github.com/Yudipratama29/webtravel/blob/main/Traveloke%20Logo.png?raw=true" alt="Logo" width="50" height="50" class="d-inline-block">
           </a>
           <a>
