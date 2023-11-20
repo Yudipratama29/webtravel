@@ -19,8 +19,16 @@
             @method('PUT')
             <div class="card-body">
                 <div>
+                    <label class="form-label">ID Book</label>
+                    <input class="form-control" type="text" name="idbook">
+                </div>
+                <div>
+                    <label class="form-label">Book Name</label>
+                    <input class="form-control" type="text" name="bookname">
+                </div>
+                <div>
                     <label class="form-label">Destination</label>
-                    <select class="form-select" name="jurusan">
+                    <select class="form-select" name="destination">
                         @foreach($datadestination as $d)
                             <option value="{{ $d->id }}">{{ $d->name }}</option>
                         @endforeach
@@ -28,7 +36,7 @@
                 </div>
                 <div>
                     <label class="form-label">Transportation</label>
-                    <select class="form-select" name="jurusan">
+                    <select class="form-select" name="transportation">
                         @foreach($datatransportation as $t)
                             <option value="{{ $t->id }}">{{ $t->transportation }}</option>
                         @endforeach
