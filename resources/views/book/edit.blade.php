@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'Ubah Mahasiswa')
+@section('title', 'Edit Booking')
 
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="{{ url('/book') }}">Booking</a></li>

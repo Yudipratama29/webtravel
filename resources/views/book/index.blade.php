@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', 'Book')
+@section('title', 'Booking')
 
 @section('breadcrumb')
     <li class="breadcrumb-item active">Book</li>

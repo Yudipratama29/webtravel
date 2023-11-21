@@ -1,16 +1,30 @@
 @extends('layout.master')
 
-@section('title', 'Home')
+@section('title', 'Traveloke')
 
 @section('breadcrumb')
     <li class="breadcrumb-item active">Home</li>
 @endsection
 
-@section('content')
-<div class="card-body">
-    <h2>Welcome, Travelers</h2>
 
-    <h5>Traveloke is a website where you can book tourist attractions, you can even book drivers or transportation which can be done easily, with just one click your travel problems will be helped easily.</h5>
+@section('content')
+
+<div class="card">
+    <style>
+        .card{
+            border: px solid #ababab;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+        .paragraph{
+            margin-bottom: 5px;
+        }
+
+    </style>
+
+        <h2>Welcome, Travelers</h2>
+        <h5>Traveloke is a website where you can book tourist attractions, you can even book drivers or transportation which can be done easily, with just one click your travel problems will be helped easily.</h5>
 
     <div class="container text-center">
         <div class="row">
